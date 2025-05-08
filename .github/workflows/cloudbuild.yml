@@ -19,7 +19,7 @@ jobs:
         credentials_json: ${{ secrets.GCP_SA_KEY }}
 
     - name: Trigger Cloud Build
-      uses: google-github-actions/cloud-build@v1
+      uses: google-github-actions/cloud-build@v0.11.0
       with:
         project_id: carbon-beanbag-452610-q6
         config: cloudbuild.yaml
