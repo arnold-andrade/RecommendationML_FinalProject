@@ -1,0 +1,10 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['functions', 'deploy', 'get-product-recommendation', 
+           '--runtime=python310',
+           '--trigger-http',
+           '--entry-point=main',
+           '--region=us-central1',
+           '--allow-unauthenticated',
+           '--source=.']
+timeout: "900s"
