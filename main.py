@@ -88,7 +88,6 @@ def hybrid_recommendations(train_data, target_user_id, item_name, top_n=10):
 
 def main(request):
     """Responds to an HTTP request.
-    
     Args:
         request (flask.Request): HTTP request object.
     Returns:
