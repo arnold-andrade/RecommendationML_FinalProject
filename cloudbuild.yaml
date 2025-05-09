@@ -1,20 +1,35 @@
 steps:
-  - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: 'bash'
+  # - name: 'gcr.io/cloud-builders/gcloud'
+  #   entrypoint: 'bash'
+  #   args:
+  #     - '-c'
+  #     - |
+  #       set -e
+  #       echo "Starting deployment..."
+  #       gcloud config list
+  #       gcloud functions deploy get-product-recommendation `
+  #         --runtime=python310 `
+  #         --trigger-http `
+  #         --entry-point=main `
+  #         --region=us-central1 `
+  #         --allow-unauthenticated `
+  #         --source=. `
+  #         --verbosity=debug
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    id: 'deploy'
+    entrypoint: 'gcloud'
     args:
-      - '-c'
-      - |
-        set -e
-        echo "Starting deployment..."
-        gcloud config list
-        gcloud functions deploy get-product-recommendation `
-          --runtime=python310 `
-          --trigger-http `
-          --entry-point=main `
-          --region=us-central1 `
-          --allow-unauthenticated `
-          --source=. `
-          --verbosity=debug
+      - 'functions'
+      - 'deploy'
+      - 'get-product-recommendation'
+      - '--runtime=python39'
+      - '--trigger-http'
+      - '--entry-point=main'
+      - '--source=frontend'
+      - '--region=us-central1'
+      - '--memory=2Gib'
+      - '--allow-unauthenticated'
+    waitFor: ['test']
 
 options:
   logging: CLOUD_LOGGING_ONLY
