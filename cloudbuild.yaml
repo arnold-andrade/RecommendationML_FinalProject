@@ -16,7 +16,7 @@ steps:
   #         --source=. `
   #         --verbosity=debug
   #step1
-  - name: 'python:3.9'
+  - name: 'python:3.10'
     id: 'Install dependencies and packages'
     entrypoint: 'bash'
     args:
@@ -24,7 +24,6 @@ steps:
       - |
         apt-get update && apt-get install -y build-essential python3-dev
         pip install --upgrade pip setuptools wheel
-        pip install blis==0.7.5
         pip install -r requirements.txt
 
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -34,7 +33,7 @@ steps:
       - 'functions'
       - 'deploy'
       - 'get-product-recommendation'
-      - '--runtime=python39'
+      - '--runtime=python310'
       - '--trigger-http'
       - '--entry-point=main'
       - '--region=us-central1'
