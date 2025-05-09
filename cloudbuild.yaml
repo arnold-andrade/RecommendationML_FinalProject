@@ -24,7 +24,7 @@ steps:
       - |
         apt-get update && apt-get install -y build-essential python3-dev
         pip install --upgrade pip setuptools wheel
-        pip install --only-binary=:all: blis==0.7.9
+        pip install --only-binary=:all: blis==0.7.5
         pip install -r requirements.txt
 
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
