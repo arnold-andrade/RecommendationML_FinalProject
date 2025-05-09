@@ -1,14 +1,15 @@
 functions-framework==3.*
+streamlit
 pandas
 numpy
 scikit-learn
 google-cloud-bigquery
 google-cloud-storage
 spacy
-# en_core_web_sm
 scipy
 requests
 bigframes
 flask
+
 
 
