@@ -7,13 +7,13 @@ steps:
         set -e
         echo "Starting deployment..."
         gcloud config list
-        gcloud functions deploy get-product-recommendation \
-          --runtime=python310 \
-          --trigger-http \
-          --entry-point=main \
-          --region=us-central1 \
-          --allow-unauthenticated \
-          --source=. \
+        gcloud functions deploy get-product-recommendation `
+          --runtime=python310 `
+          --trigger-http `
+          --entry-point=main `
+          --region=us-central1 `
+          --allow-unauthenticated `
+          --source=. `
           --verbosity=debug
 
 options:
