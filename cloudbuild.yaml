@@ -25,9 +25,8 @@ steps:
       - '--runtime=python39'
       - '--trigger-http'
       - '--entry-point=main'
-      - '--source=.'
       - '--region=us-central1'
-      - '--memory=2Gib'
+      # - '--memory=2Gib'
       - '--allow-unauthenticated'
     waitFor: ['test']
 
